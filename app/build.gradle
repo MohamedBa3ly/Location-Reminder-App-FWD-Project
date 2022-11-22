@@ -1,0 +1,155 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
+
+}
+
+android {
+    namespace 'com.udacity.project4'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.udacity.project4"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+
+    // Dependencies for local unit tests
+//    testImplementation "org.hamcrest:hamcrest-all:1.3.0"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation "org.robolectric:robolectric:4.3-beta-1"
+    testImplementation "com.google.truth:truth:0.44"
+//    testImplementation "org.mockito:mockito-core:2.19.0"
+
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test:core-ktx:1.5.0-rc01"
+    testImplementation "androidx.test.ext:junit-ktx:1.1.3"
+    testImplementation "androidx.test:rules:1.5.0-rc01"
+
+   // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test:core-ktx:1.5.0-rc01"
+    androidTestImplementation "androidx.test.ext:junit-ktx:1.1.3"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    androidTestImplementation "androidx.test:rules:1.5.0-rc01"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation "org.robolectric:annotations:4.3-beta-1"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:3.4.0"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:3.4.0"
+//    androidTestImplementation "androidx.test.espresso:espresso-accessibility:3.4.0"
+//    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:3.4.0"
+    implementation "androidx.test.espresso.idling:idling-concurrent:3.4.0"
+    androidTestImplementation "junit:junit:4.13.2"
+
+    androidTestImplementation('androidx.test:runner:1.4.0')
+    androidTestImplementation('androidx.test:rules:1.4.0')
+
+
+//    // Once https://issuetracker.google.com/127986458 is fixed this can be testImplementation
+    debugImplementation "androidx.fragment:fragment-testing:1.6.0-alpha03"
+//    debugImplementation "androidx.fragment:fragment-testing:1.5.4"
+    implementation "androidx.test:core:1.5.0-rc01"
+    implementation "androidx.fragment:fragment:1.6.0-alpha03"
+//    implementation "androidx.fragment:fragment:1.5.4"
+    androidTestImplementation 'org.mockito:mockito-android:3.2.4'
+//    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
+//    androidTestImplementation('org.koin:koin-test:2.0.1') { exclude group: 'org.mockito' }
+//    androidTestImplementation('io.insert-koin:koin-android:3.3.0') { exclude group: 'org.mockito' }
+
+
+
+
+    // Room components
+    implementation "androidx.room:room-runtime:2.5.0-beta01"
+    kapt "androidx.room:room-compiler:2.5.0-beta01"
+    implementation "androidx.room:room-ktx:2.5.0-beta01"
+    androidTestImplementation "androidx.room:room-testing:2.5.0-beta01"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+
+    // Kotlin components
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+   //Koin
+//    implementation "org.koin:koin-android:2.0.1"
+//    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:3.3.0"
+// Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:3.3.0"
+// Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:3.3.0"
+// Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:3.3.0"
+
+    androidTestImplementation "io.insert-koin:koin-core:3.2.2"
+    androidTestImplementation "io.insert-koin:koin-test:3.2.2"
+    androidTestImplementation "io.insert-koin:koin-test-junit4:3.2.2"
+
+    //Maps & Geofencing
+    implementation "com.google.android.gms:play-services-location:21.0.0"
+    implementation "com.google.android.gms:play-services-maps:18.1.0"
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+}
