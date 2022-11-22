@@ -2,7 +2,8 @@
 
 Create a TODO list app with location reminders that remind the user to do something when the user is at a specific location. The app will require the user to create an account and login to set and access reminders.
 
-Dependencies
+Dependencies:
+
 There are some dependencies that are needed to complete your project, here are the step-by-step instructions to get a dev environment running:
 
 1- To enable Firebase Authentication:
